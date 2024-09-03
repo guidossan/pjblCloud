@@ -19,7 +19,7 @@ stages:
    
     - task: Docker@2
       inputs:
-        containerRegistry: 'DockerConnection'
+        containerRegistry: 'containerRegistry'
         repository: 'guidossan/pjblCloud'
         command: 'buildAndPush'
         tags: '$(Build.BuildId)'
