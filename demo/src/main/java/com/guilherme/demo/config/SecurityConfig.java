@@ -47,6 +47,7 @@ public class SecurityConfig {
             .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class)
             .build();
     }
+    
     @Bean
     public CorsConfigurationSource configurationSource(){
         CorsConfiguration config = new CorsConfiguration().applyPermitDefaultValues();
