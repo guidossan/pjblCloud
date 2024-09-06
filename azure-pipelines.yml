@@ -23,4 +23,4 @@ stages:
         repository: 'guidossan/pjblCloud'
         command: 'buildAndPush'
         tags: '$(Build.BuildId)'
-        Dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
+        Dockerfile: '$(Build.SourcesDirectory)/demo/Dockerfile'
