@@ -152,3 +152,29 @@ Além disso, há a utlização do Firebase para autenticação de usuários no s
 
 O frontend será desenvolvido em Angular, sendo disponibilizado em como um sistema Web, se comunicando com o usuário via requisições HTTP.
 
+# Solução estratégica
+
+O sistema "Chestplace" é baseado em três entidades principais: comprador, vendedor e produto. Nele, um vendedor publica um produto, que pode ser adquirido posteriormente por um comprador.
+
+O sistema é desenvolvido em Spring Boot, escolhida pela familiaridade da equipe com a tecnologia e sua extensa base de bibliotecas que facilitam tanto o desenvolvimento quanto a documentação. Além disso, utiliza-se o Azure Functions, conforme exigido pela disciplina.
+
+Segue o padrão "database per service", distribuído da seguinte forma:
+
+- Carrinho de compras: Banco de dados não relacional com MongoDB.
+- Autenticação: Banco relacional com Firebase. 
+- Demais funções do sistema: Banco relacional em PostgresSQL.
+
+A comunicação entre APIs segue a arquitetura REST, padronizando o uso dos verbos HTTP e formato de dados JSON.
+
+# Build Block view
+- Todos os diagramas
+
+# Decisão de design
+
+# Cenários de qualidade
+
+# Riscos técnicos
+
+# Glosário 
+chave valor
+
