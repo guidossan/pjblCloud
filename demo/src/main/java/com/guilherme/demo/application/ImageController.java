@@ -20,7 +20,6 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.guilherme.demo.domain.entity.Image;
 import com.guilherme.demo.domain.enums.ImageExtencion;
-import com.guilherme.demo.domain.service.ImageService;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -34,7 +33,7 @@ import lombok.extern.slf4j.Slf4j;
 @CrossOrigin("*")
 public class ImageController {
 
-    private final ImageService service;
+    private final ImageServiceImp service;
     private final ImagesMapper mapper;
 
     @PostMapping()
