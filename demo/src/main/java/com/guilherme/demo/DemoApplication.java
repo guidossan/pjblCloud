@@ -8,9 +8,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
-import com.guilherme.demo.domain.entity.Image;
-import com.guilherme.demo.domain.enums.ImageExtencion;
-import com.guilherme.demo.repository.ImageReporitory;
+import com.guilherme.demo.slices.image.entity.Image;
+import com.guilherme.demo.slices.image.enums.ImageExtencion;
+import com.guilherme.demo.slices.image.repository.ImageReporitory;
 
 @SpringBootApplication
 @EnableJpaAuditing
