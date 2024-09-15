@@ -185,9 +185,28 @@ O problema apresentado é a fragmentação do mercado de camisetas, com a venda 
 
 
 # Cenários de qualidade
+## Árvore de qualidade
+    graph LR
+    subgraph Qualidades
+        direction LR
+        A((Eficiência)) --> B((Fast entering of mileages))
+        A --> C((Testability))
+        C --> D((Coverage))
+        C --> E((Independent from external services))
+        A --> F((Interoperabilidade))
+        F --> G((REST endpoints))
+        A --> H((Atractiveness))
+        H --> I((Intuitive charts))
+    end
+## Cenários de avaliação
+### Intereperabilidade/REST Endpoints
+
+A arquitetura deve ser concebida para garantir que a aplicação possa interagir e operar de forma eficiente com sistemas e serviços externos, independentemente das tecnologias ou plataformas utilizadas. 
+A arquitetura deve seguir boas práticas de verbos http status, ao menos deve conter uma saída para sucesso e outra para erro. 
 
 # Riscos técnicos
-
+Chestplace não entrou em produção e está em desenvolvimento, porém é identificado riscos.
+Há possibilidade de perda de conexão com hspodagem azure, ou ainda falha na integração contínua para deploy automático. O risco é mitigado através de backups regulares do arquivo de banco de dados relacional. 
 # Glosário 
 chave valor
 
