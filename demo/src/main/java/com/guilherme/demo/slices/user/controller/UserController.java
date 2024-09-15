@@ -47,10 +47,11 @@ public class UserController {
         try {
             User user = mapper.maptoUser(dto);
             userService.save(user);
+            //http status 201
             return ResponseEntity.status(HttpStatus.CREATED).body("OK");
             
         } catch (DuplicatedTupleException e) {
-            
+            //http status 409
             return ResponseEntity.status(HttpStatus.CONFLICT).body(e.getMessage());
         }
     }
@@ -62,8 +63,10 @@ public class UserController {
         var token = userService.authenticate(credentials.getEmail(), credentials.getSenha());
         
         if(token != null){
+            //http status 201
             return new ResponseEntity<>(token, HttpStatus.CREATED);
         }
+        //http status 400
         return ResponseEntity.badRequest().build();
         //return ResponseEntity.status(HttpStatus.ACCEPTED).body(token);
         

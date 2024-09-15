@@ -53,12 +53,14 @@ public class ImageController {
         Image image = mapper.mapToImage(file, name, tags);
         Image savedImage = service.save(image);
         URI imageUri = buildImageUri(savedImage);
+        //http status 201
         return ResponseEntity.created(imageUri).build();
     }
     @GetMapping("{id}")
     public ResponseEntity<byte[]> getImage(@PathVariable String id){
         var possibleImage = service.findById(id);
         if (possibleImage.isEmpty()){
+            //http status 404 
             return ResponseEntity.notFound().build();
         }
         var image = possibleImage.get();
@@ -67,6 +69,7 @@ public class ImageController {
         headers.setContentLength(image.getSize());
         //inline; filename ="image.PNG"
         headers.setContentDispositionFormData("inline; filename=\"" + image.getFileName() + "\"", image.getFileName());
+        //http status 200
         return new ResponseEntity<>(image.getFile(), headers, HttpStatus.OK);
     }
 
@@ -83,7 +86,7 @@ public class ImageController {
             var url = buildImageUri(image);
             return mapper.imageToDto(image, url.toString());
         }).collect(Collectors.toList());
-
+        
         return ResponseEntity.ok(images);
     }
 
