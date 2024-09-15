@@ -170,6 +170,19 @@ A comunicação entre APIs segue a arquitetura REST, padronizando o uso dos verb
 - Todos os diagramas
 
 # Decisão de design
+### Problema
+O problema apresentado é a fragmentação do mercado de camisetas, com a venda separada entre camisetas novas e usadas e por diferentes tipos de vendedores. Além disso, a exigência de cadastro para compras pode tornar a experiência do usuário mais lenta e onerosa. O software proposto visa centralizar a venda de camisetas de diversos segmentos e permitir compras sem a obrigatoriedade de cadastro.
+ 
+### Restrições
+- A aplicação deve suportar arquivos de imagem dos produtos em diversos formatos.
+- O foco da aplicação deve-se sentrar em uma aplicação backend estruturada em slices moderna para Spring boot.
+
+
+### Suposições
+- Uma aplicação sem padrões de componentes podem prejudicar a usabilidade do usuário no site
+- Tipos variados de arquivos de imagem podem prejudicar o desempenho da aplicação
+
+
 
 # Cenários de qualidade
 
