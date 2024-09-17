@@ -10,6 +10,7 @@ import com.guilherme.demo.slices.image.entity.Image;
 import com.guilherme.demo.slices.image.enums.ImageExtencion;
 import com.guilherme.demo.slices.image.repository.ImageReporitory;
 
+import io.jsonwebtoken.io.IOException;
 import lombok.RequiredArgsConstructor;
 
 @Service
@@ -30,7 +31,17 @@ public class ImageService{
         return repository.findById(id);
     }
 
-    
+    public boolean deleteById(String id) {
+       repository.deleteById(id);
+    return false;
+      
+
+    }
+
+    public Optional<Image> putById(String id) {
+        return repository.findById(id);
+    }
+
     public List<Image> search(ImageExtencion extencion, String query) {
         return repository.findByExtencionAndNameOrTagsLike(extencion, query);
     }

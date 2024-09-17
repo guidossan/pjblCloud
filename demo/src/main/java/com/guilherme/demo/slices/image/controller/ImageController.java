@@ -10,9 +10,11 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
@@ -26,6 +28,8 @@ import com.guilherme.demo.slices.image.service.ImageService;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 
 
@@ -38,6 +42,42 @@ public class ImageController {
 
     private final ImageService service;
     private final ImagesMapper mapper;
+
+    @DeleteMapping("{id}")
+    public ResponseEntity<String> deleteById(@PathVariable String id) throws IOException{
+       
+        
+        var possibleImage = service.deleteById(id);
+        if (!possibleImage){
+            //http status 404 
+            return ResponseEntity.notFound().build();
+        }
+       
+        //http status 200
+        return new ResponseEntity<>("Delete image", 
+        HttpStatus.OK);
+    }
+    @PutMapping("{id}")
+    public ResponseEntity<byte[]> replaceImage(
+        @RequestParam("file") MultipartFile file,
+        @RequestParam("name")String name,
+        @RequestParam("tags") List<String> tags,
+        @PathVariable String id
+    ) throws IOException{
+        var possibleImage = service.findById(id);
+        if (possibleImage.isEmpty()){
+            //http status 404 
+            return ResponseEntity.notFound().build();
+        }
+        service.deleteById(id);
+        Image image = mapper.mapToImage(file, name, tags);
+        Image savedImage = service.save(image);
+        URI imageUri = buildImageUri(savedImage);
+        //http status 201
+        return ResponseEntity.created(imageUri).build();
+     
+       
+    }
 
     @PostMapping()
     public ResponseEntity<String> save(
