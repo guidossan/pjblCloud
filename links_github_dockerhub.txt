@@ -1,0 +1,8 @@
+Link GitHub Azure Function (Carrinho API)
+https://github.com/carloskrefer/chestplace-azure-function
+
+Link GitHub Backend (Marketplace API)
+https://github.com/guidossan/pjblCloud
+
+Link DockerHub Backend (Marketplace API)
+https://hub.docker.com/repository/docker/guidossan/pjblcloud/general
