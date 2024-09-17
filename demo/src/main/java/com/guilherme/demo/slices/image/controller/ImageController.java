@@ -48,11 +48,12 @@ public class ImageController {
        
         
         var possibleImage = service.deleteById(id);
-        if (!possibleImage){
+        System.out.println(possibleImage);
+        if (possibleImage){
             //http status 404 
             return ResponseEntity.notFound().build();
         }
-       
+        
         //http status 200
         return new ResponseEntity<>("Delete image", 
         HttpStatus.OK);
