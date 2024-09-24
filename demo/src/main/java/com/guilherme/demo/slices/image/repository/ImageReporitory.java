@@ -5,13 +5,14 @@ import java.util.List;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.util.StringUtils;
 
 import com.guilherme.demo.slices.common.GenericSpec;
 import com.guilherme.demo.slices.image.entity.Image;
 import com.guilherme.demo.slices.image.enums.ImageExtencion;
 
-
+@EnableJpaRepositories
 public interface ImageReporitory extends JpaRepository<Image, String>, JpaSpecificationExecutor<Image>{
     default List<Image> findByExtencionAndNameOrTagsLike(ImageExtencion extencion, String query){
         //SELECT * FROM IMAGE WHERE 1 = 1

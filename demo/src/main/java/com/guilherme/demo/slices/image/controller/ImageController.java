@@ -111,7 +111,7 @@ public class ImageController {
         //inline; filename ="image.PNG"
         headers.setContentDispositionFormData("inline; filename=\"" + image.getFileName() + "\"", image.getFileName());
         //http status 200
-        return new ResponseEntity<>(image.getFile(), headers, HttpStatus.OK);
+        return new ResponseEntity<>(image.getImageFileName(), headers, HttpStatus.OK);
     }
 
     //http://localhost:8080/images?extencio=PNG&query=Nature

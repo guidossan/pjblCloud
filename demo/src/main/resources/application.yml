@@ -1,14 +1,16 @@
-#jdbc:postgresql://localhost:5432/imagelite
+
 
 spring:
     datasource:
-        #url: jdbc:postgresql://db:5432/db
-        url: jdbc:sqlserver://pjblpucpr24.database.windows.net:1433;database=pjblpucpr24;user=sqlserver@pjblpucpr24;password=Gui1234567encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
-
+       
+        url: jdbc:sqlserver://pjblpucpr24.database.windows.net:1433;database=pjblpucpr24;user=sqlserver;password=Gui1234567;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
+  
     jpa: 
-        database: POSTGRESQL
+        
+        database: SQL_SERVER
         hibernate: 
             ddl-auto: update
+             
         show-sql: true
     servlet:
         multipart: 

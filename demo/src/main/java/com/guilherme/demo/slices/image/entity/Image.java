@@ -49,7 +49,7 @@ public class Image {
     @Column
     //salvar arquivos
     @Lob 
-    private byte[] file;
+    private byte[] imageFileName;
     public String getFileName(){
         //landau213412.PNG
         return getName().concat(".").concat(getExtencion().name());
