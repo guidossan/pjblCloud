@@ -32,7 +32,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 
 
-
+/*
+ * URL api azure https://pjbl.ashypond-b411e96c.eastus2.azurecontainerapps.io
+ */
 @RestController
 @RequestMapping("/images")
 @Slf4j
