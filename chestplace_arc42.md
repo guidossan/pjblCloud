@@ -399,7 +399,7 @@ A arquitetura deve seguir boas práticas de verbos http status, ao menos deve co
 
 # 11. Visão de riscos e dívidas técnicas
 Chestplace não entrou em produção e está em desenvolvimento, porém é identificado riscos.
-Há possibilidade de perda de conexão com hspodagem azure, ou ainda falha na integração contínua para deploy automático. O risco é mitigado através de backups regulares do arquivo de banco de dados relacional. 
+Há possibilidade de perda de conexão com hspodagem azure, ou ainda falha na integração contínua para deploy automático. O risco é mitigado através de backups regulares do arquivo de banco de dados relacional e utilizar multicloud nos microserviços. 
 
 # 12. Glosário 
 _Em branco._
